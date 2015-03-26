@@ -1,6 +1,6 @@
 # Find the maximum total from top to bottom of the triangle below:
 
-triangle = [ [ int(j) for j in i.split(" ")] for i in '''
+triangle = [ [ int(j) for j in num.split(" ")] for num in '''
 75
 95 64
 17 47 82
@@ -18,11 +18,11 @@ triangle = [ [ int(j) for j in i.split(" ")] for i in '''
 04 62 98 27 23 09 70 98 73 93 38 53 60 04 23
 '''.split("\n")[1:-1]]
 
-lookup = [ [ 0 for j in i ] for i in triangle ]
+lookup = [ [ 0 for j in num ] for num in triangle ]
 lookup[len(triangle)-1] = triangle[len(triangle)-1]
 
-for i in range(len(triangle[:-1]))[::-1]:
-    for j in range(i+1):
-        lookup[i][j] = triangle[i][j] + max(lookup[i+1][j], lookup[i+1][j+1])
+for num in range(len(triangle[:-1]))[::-1]:
+    for j in range(num+1):
+        lookup[num][j] = triangle[num][j] + max(lookup[num+1][j], lookup[num+1][j+1])
         
 print lookup[0][0]

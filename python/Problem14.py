@@ -1,7 +1,7 @@
 # 13 -> 40 -> 20 -> 10 -> 5 -> 16 -> 8 -> 4 -> 2 -> 1
 # Which starting number, under one million, produces the longest chain
 
-lookup = [ 0 for i in range(1000000) ]
+lookup = [ 0 for num in range(1000000) ]
 
 def collatz(start):
     
@@ -26,11 +26,11 @@ def collatz(start):
 maxcount = 0
 maxstart = 0
 
-for i in range(1,1000000):
-    c = collatz(i)
+for num in range(1,1000000):
+    c = collatz(num)
     
     if c > maxcount:
         maxcount = c
-        maxstart = i
+        maxstart = num
         
 print maxstart

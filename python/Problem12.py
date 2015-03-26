@@ -12,16 +12,16 @@ def triangle():
 def countDivisors(num):
     count = 0
     
-    for i in range(1, int(num**.5)+1):
-        if num % i == 0:
-            if num // i == i:
+    for num in range(1, int(num**.5)+1):
+        if num % num == 0:
+            if num // num == num:
                 count += 1
             else:
                 count += 2
                 
     return count
 
-for i in triangle():
-    if countDivisors(i) > 500:
-        print i
+for num in triangle():
+    if countDivisors(num) > 500:
+        print num
         break

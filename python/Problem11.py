@@ -25,24 +25,24 @@ grid = '''
 01 70 54 71 83 51 54 69 16 92 33 48 61 43 52 01 89 19 67 48
 '''
 
-grid = [ i.split() for i in grid.split("\n")[1:-1] ]
+grid = [ num.split() for num in grid.split("\n")[1:-1] ]
 
 def getVertical(x, y):
-    return reduce(operator.mul, [ int(grid[x+i][y]) for i in range(4) ], 1)
+    return reduce(operator.mul, [ int(grid[x+num][y]) for num in range(4) ], 1)
 
 def getHorizontal(x, y):
-    return reduce(operator.mul, [ int(grid[x][y+i]) for i in range(4) ], 1)
+    return reduce(operator.mul, [ int(grid[x][y+num]) for num in range(4) ], 1)
 
 def getDiagonalR(x, y):
-    return reduce(operator.mul, [ int(grid[x+i][y+i]) for i in range(4) ], 1)
+    return reduce(operator.mul, [ int(grid[x+num][y+num]) for num in range(4) ], 1)
 
 def getDiagonalL(x, y):
-    return reduce(operator.mul, [ int(grid[x+i][y-i]) for i in range(4) ], 1)
+    return reduce(operator.mul, [ int(grid[x+num][y-num]) for num in range(4) ], 1)
  
 maxprod = 0
 
-for i in range(len(grid)-4):
-    for j in range(len(grid[i])-4):
-        maxprod = max([maxprod, getVertical(i, j), getHorizontal(i, j), getDiagonalR(i, j), getDiagonalL(i, j+4)])
+for num in range(len(grid)-4):
+    for j in range(len(grid[num])-4):
+        maxprod = max([maxprod, getVertical(num, j), getHorizontal(num, j), getDiagonalR(num, j), getDiagonalL(num, j+4)])
       
 print maxprod

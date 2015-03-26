@@ -102,4 +102,4 @@ num = '''
 53503534226472524250874054075591789781264330331690
 '''
 
-print str(sum([int(i) for i in num.split("\n")[1:-1]]))[:10]
+print str(sum([int(num) for num in num.split("\n")[1:-1]]))[:10]
