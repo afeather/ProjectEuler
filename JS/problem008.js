@@ -1,7 +1,7 @@
 
 // The four adjacent digits in the 1000-digit number that have the greatest
 // product are 9 × 9 × 8 × 9 = 5832.
-
+//
 // 73167176531330624919225119674426574742355349194934
 // 96983520312774506326239578318016984801869478851843
 // 85861560789112949495459501737958331952853208805511
@@ -22,7 +22,7 @@
 // 84580156166097919133875499200524063689912560717606
 // 05886116467109405077541002256983155200055935729725
 // 71636269561882670428252483600823257530420752963450
-
+//
 // Find the thirteen adjacent digits in the 1000-digit number that have the
 // greatest product. What is the value of this product?
 
@@ -68,4 +68,5 @@
     var end = new Date();
 
     console.log(out, end.getTime() - start.getTime(), 'ms');
+
 })();

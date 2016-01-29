@@ -25,7 +25,6 @@
             }
         }
 
-
     }
 
     var start = new Date();
@@ -33,4 +32,5 @@
     var end = new Date();
 
     console.log(out, end.getTime() - start.getTime(), 'ms');
+
 })();

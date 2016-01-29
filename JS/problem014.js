@@ -1,5 +1,4 @@
-//
-//
+
 // The following iterative sequence is defined for the set of positive integers:
 //
 // n → n/2 (n is even)
@@ -29,13 +28,12 @@
 
         return maxstart;
 
-
     }
-
 
     var start = new Date();
     var out = longestchain(1e6);
     var end = new Date();
 
     console.log(out, end.getTime() - start.getTime(), 'ms');
+
 })();
