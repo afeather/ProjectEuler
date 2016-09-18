@@ -11,16 +11,4 @@
 // Find the difference between the sum of the squares of the first one hundred
 // natural numbers and the square of the sum.
 
-(function() {
-
-    var squaresum = lim => ( s => s*s )([...Array(lim)].map((_,i) => i+1).reduce((sum, num) => sum + num));
-
-    var sumsquare = lim => ([...Array(lim)].map((_,i) => i+1).reduce((sum, num) => sum + (num * num)));
-
-    var start = new Date();
-    var out = squaresum(100) - sumsquare(100);
-    var end = new Date();
-
-    console.log(out, end.getTime() - start.getTime(), 'ms');
-
-})();
+(n=>n*n*(n+1)*(n+1)/4-n*(n+1)*(2*n+1)/6)(100);
