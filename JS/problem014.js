@@ -13,27 +13,4 @@
 //
 // NOTE: Once the chain starts the terms are allowed to go above one million.
 
-(function(){
-
-    var c = {1:1};
-    var collatz = n => c[n] || (c[n] = 1 + collatz(n % 2 ? 3 * n + 1 : n / 2));
-
-    var longestchain = function(lim) {
-
-        var start = 1, max = maxstart = 0;
-
-        while (++start < lim)
-            if (collatz(start) > max)
-                [max, maxstart] = [collatz(start), start];
-
-        return maxstart;
-
-    }
-
-    var start = new Date();
-    var out = longestchain(1e6);
-    var end = new Date();
-
-    console.log(out, end.getTime() - start.getTime(), 'ms');
-
-})();
+for(l={1:1},c=n=>l[n]||(l[n]=c(n%2?3*n+1:n/2)+1),m=i=1;i<1e6;i++)if(l[m]<c(i))m=i;m;
