@@ -4,38 +4,4 @@
 
 // What is the 10 001st prime number?
 
-(function() {
-
-    var sieve = function(lim) {
-
-        var isPrime = [...Array(lim)].map(_ => true);
-        isPrime[0] = isPrime[1] = false;
-
-        for (var i = 2; i < lim / 2; i++)
-            for (var j = 2; i * j < lim; j++)
-                isPrime[i*j] = false;
-
-        return isPrime.map((isPrime, val) => isPrime ? val : 0)
-                      .filter(val => val);
-
-    }
-
-    var nthprime = function(n) {
-
-        var lim = 100;
-        var s = sieve(lim);
-
-        while (s.length <= n)
-            s = sieve(lim = lim * 2);
-
-        return s[n-1];
-
-    }
-
-    var start = new Date();
-    var out = nthprime(10001);
-    var end = new Date();
-
-    console.log(out, end.getTime() - start.getTime(), 'ms');
-    
-})();
+for(p=[],l=1e4;p.length<1e4;l*=2)p=(()=>{for(s=[false,false].concat([...Array(l-2)].map(_=>true)),a=2,b=a*a;a*a<l;(s[a]&&b<l)?b+=a:a++&&(b=a*a))s[b]=false;return s;})().map((p,i)=>p?i:0).filter(v=>v);p[1e4];
