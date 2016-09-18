@@ -7,4 +7,4 @@
 // By considering the terms in the Fibonacci sequence whose values do not exceed
 // four million, find the sum of the even-valued terms.
 
-for(a=b=1,s=0;b<4e6;){b=a+(a=b);s+=a%2?0:a;}
+for(a=b=1,s=0;b<4e6;)s+=(b=a+(a=b))%2?0:b;
