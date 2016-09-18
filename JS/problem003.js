@@ -3,4 +3,4 @@
 //
 // What is the largest prime factor of the number 600851475143 ?
 
-for(n=600851475143,i=2;n>1;i++){if(n%i==0){while(n%i==0)n/=i;}}i-1;
+for(n=600851475143,i=2;n>1;i++)while(n%i==0)n/=i;i-1;
