@@ -1,6 +1,6 @@
 # What is the total of all the name scores in the file?
 
-namefile = open("./Problem22.txt")
+namefile = open("./Problem022.txt")
 
 names = [ num[1:-1] for num in namefile.read().split(",") ]
 names.sort()
