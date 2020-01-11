@@ -6,4 +6,4 @@ def sumSquare(n):
 def squareSum(n):
     return sum(range(1, n+1)) ** 2
 
-print squareSum(100) - sumSquare(100)
+print(squareSum(100) - sumSquare(100))
