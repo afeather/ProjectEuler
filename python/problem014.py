@@ -14,7 +14,7 @@ def collatz(start):
             count = count + lookup[current] - 1
             break
         elif current % 2 == 0:
-            current = current / 2
+            current = int(current / 2)
         else:
             current = current * 3 + 1
         
@@ -33,4 +33,4 @@ for num in range(1,1000000):
         maxcount = c
         maxstart = num
         
-print maxstart
+print(maxstart)

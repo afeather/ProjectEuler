@@ -2,11 +2,14 @@
 
 from prime import isPrime
 
-num, count = 1, 1
-while count < 10001:
+num, count = 1, 2
+while True:
+  num += 4
+  if isPrime(num): count += 1
+  if count > 10000: break
+  
   num += 2
   if isPrime(num): count += 1
+  if count > 10000: break
 
 print(num)
-
-    

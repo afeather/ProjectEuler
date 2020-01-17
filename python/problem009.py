@@ -1,22 +1,4 @@
 # There exists exactly one Pythagorean triplet for which a + b + c = 1000. Find the product abc.
         
-a = 1
-b = 1
-c = 0
+print([int(a * b * c) for a in range(1, 1000) for b in range(1, a) for c in [( a * a + b * b ) ** .5] if a + b + c == 1000][0])
 
-while a < 1000:
-    b = 0
-    while b < 1000:
-        c = ((a ** 2) + (b ** 2)) ** .5
-        
-        if a + b + c == 1000:
-            break
-        
-        b = b + 1
-        
-    if a + b + c == 1000:
-        break
-    
-    a = a + 1
-
-print (int)(a * b * c)

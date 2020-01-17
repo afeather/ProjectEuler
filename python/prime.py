@@ -1,22 +1,26 @@
 
 def largestPrimeFactor(num):
-  lpf = 1
-  divisor = 2
-  while num > 1:
-    if num % divisor == 0: lpf = divisor
-    while num % divisor == 0: num /= divisor
-    divisor += 1
-  return lpf
+  return max(primeFactors(num))
 
 def primeFactors(num):
-  factors = []
   divisor = 2
   while num > 1:
     while num % divisor == 0:
-      factors.append(divisor)
+      yield divisor
       num /= divisor
     divisor += 1
-  return factors
 
 def isPrime(num):
-  return not any(num % i == 0 for i in range(2, int(num**.5)+1))
+  return not any(num % d == 0 for d in range(2, int(num**.5) + 1))
+
+def sieve(limit):
+  primes = [True for i in range(limit + 1)]
+  primes[0], primes[1] = False, False
+
+  num = 2
+  while num * num <= limit:
+    if primes[num]:
+      for multiple in range(num * 2, limit + 1, num): primes[multiple] = False
+    num += 1
+
+  return primes

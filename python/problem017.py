@@ -25,24 +25,19 @@ numbers.append("EIGHTEEN")
 numbers.append("NINETEEN")
     
 for num in range(len(tens)):
-    numbers.append(tens[num])
-    for j in range(9):
-        numbers.append(tens[num] + numbers[j])
+  numbers.append(tens[num])
+  for j in range(9):
+    numbers.append(tens[num] + numbers[j])
             
 for num in range(9):
-    numbers.append(hundreds[num] + "HUNDRED")
-    for k in range(19):
-            numbers.append(hundreds[num] + "HUNDREDAND" + numbers[k])
-    for j in range(8):
-        numbers.append(hundreds[num] + "HUNDREDAND" + tens[j])
-        for k in range(9):
-            numbers.append(hundreds[num] + "HUNDREDAND" + tens[j] + numbers[k])
-            
+  numbers.append(hundreds[num] + "HUNDRED")
+  for k in range(19):
+    numbers.append(hundreds[num] + "HUNDREDAND" + numbers[k])
+  for j in range(8):
+    numbers.append(hundreds[num] + "HUNDREDAND" + tens[j])
+    for k in range(9):
+      numbers.append(hundreds[num] + "HUNDREDAND" + tens[j] + numbers[k])
+
 numbers.append("ONETHOUSAND")
-           
-           
- 
-for num in numbers:
-    print num
-print len(numbers)
-print sum([len(num) for num in numbers])
+
+print(sum([len(num) for num in numbers]))

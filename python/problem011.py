@@ -1,7 +1,5 @@
 # What is the greatest product of 4 adjacent numbers in the same direction ( up, down, left, right ) in the 20x20 grid?
 
-import operator
-
 grid = '''
 08 02 22 97 38 15 00 40 00 75 04 05 07 78 52 12 50 77 91 08
 49 49 99 40 17 81 18 57 60 87 17 40 98 43 69 48 04 56 62 00
@@ -27,22 +25,24 @@ grid = '''
 
 grid = [ num.split() for num in grid.split("\n")[1:-1] ]
 
+from functools import reduce
+
 def getVertical(x, y):
-    return reduce(operator.mul, [ int(grid[x+num][y]) for num in range(4) ], 1)
+    return reduce(int.__mul__, [int(grid[x+num][y]) for num in range(4)])
 
 def getHorizontal(x, y):
-    return reduce(operator.mul, [ int(grid[x][y+num]) for num in range(4) ], 1)
+    return reduce(int.__mul__, [int(grid[x][y+num]) for num in range(4)])
 
 def getDiagonalR(x, y):
-    return reduce(operator.mul, [ int(grid[x+num][y+num]) for num in range(4) ], 1)
+    return reduce(int.__mul__, [int(grid[x+num][y+num]) for num in range(4)])
 
 def getDiagonalL(x, y):
-    return reduce(operator.mul, [ int(grid[x+num][y-num]) for num in range(4) ], 1)
+    return reduce(int.__mul__, [int(grid[x+num][y-num]) for num in range(4)])
  
 maxprod = 0
 
-for num in range(len(grid)-4):
-    for j in range(len(grid[num])-4):
-        maxprod = max([maxprod, getVertical(num, j), getHorizontal(num, j), getDiagonalR(num, j), getDiagonalL(num, j+4)])
+for x in range(len(grid)-4):
+    for y in range(len(grid[x])-4):
+        maxprod = max([maxprod, getVertical(x, y), getHorizontal(x, y), getDiagonalR(x, y), getDiagonalL(x, y+4)])
       
-print maxprod
+print(maxprod)
