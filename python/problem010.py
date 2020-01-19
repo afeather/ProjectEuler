@@ -2,6 +2,5 @@
 
 from prime import sieve
 
-TWO_MILLION = 2000000
-print(sum([n for n, isprime in enumerate(sieve(TWO_MILLION)) if isprime]))
+print(sum([ n for n, isprime in enumerate(sieve(2000000)) if isprime ]))
 

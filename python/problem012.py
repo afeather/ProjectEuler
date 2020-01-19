@@ -1,19 +1,13 @@
 # What is the value of the first triangle number to have over five hundred divisors?
 
-def countDivisors(num):
-    count = 0
-    
-    sqrt = num ** .5
-    for divisor in range(1, int(sqrt)):
-        if num % divisor == 0: count += 2
+def d(num):
+  divisors = [ d for d in range(1, int(num ** .5) + 1) if num % d == 0 ]
+  return set(divisors + [ num // d for d in divisors ])
 
-    if num % int(sqrt) == 0: count += 1    
+def triangle():
+  num, count = 0, 1
+  while True:
+    num, count = num + count, count + 1
+    yield num
 
-    return count
-
-triangle, count = 0, 1
-while True:
-  triangle, count = triangle + count, count + 1
-  if countDivisors(triangle) > 500: break
-
-print(triangle)
+print(next( num for num in triangle() if len(d(num)) > 500 ))

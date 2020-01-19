@@ -2,6 +2,5 @@
 
 from prime import largestPrimeFactor
 
-NUM = 600851475143
-print(largestPrimeFactor(NUM))
+print(largestPrimeFactor(600851475143))
 
