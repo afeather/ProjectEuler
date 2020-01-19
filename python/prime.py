@@ -11,7 +11,26 @@ def primeFactors(num):
     divisor += 1
 
 def isPrime(num):
+  if num == 1: return False
+  if num == 2: return True
   return not any(num % d == 0 for d in range(2, int(num**.5) + 1))
+
+def probablePrimes():
+  yield 2
+  yield 3
+
+  num = 1
+  while True:
+    num += 4
+    yield num
+    num += 2
+    yield num
+
+def nthPrime(n):
+  for num in probablePrimes():
+    if isPrime(num): n -= 1
+    if n <= 0: return num
+      
 
 def sieve(limit):
   primes = [True for i in range(limit + 1)]
@@ -24,3 +43,5 @@ def sieve(limit):
     num += 1
 
   return primes
+
+nthPrime(10)

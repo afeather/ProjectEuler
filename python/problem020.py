@@ -2,6 +2,5 @@
 
 from math import factorial
 
-digits = [ int(num) for num in str(factorial(100))]
+print(sum([int(num) for num in str(factorial(100))]))
 
-print sum(digits)

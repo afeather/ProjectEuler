@@ -25,4 +25,4 @@ for num in range(len(triangle[:-1]))[::-1]:
     for j in range(num+1):
         lookup[num][j] = triangle[num][j] + max(lookup[num+1][j], lookup[num+1][j+1])
         
-print lookup[0][0]
+print(lookup[0][0])
