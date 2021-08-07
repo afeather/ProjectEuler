@@ -40,4 +40,4 @@ for num in range(9):
 
 numbers.append("ONETHOUSAND")
 
-print(sum([len(num) for num in numbers]))
+print(sum(len(num) for num in numbers))

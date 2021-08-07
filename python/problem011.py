@@ -27,22 +27,9 @@ grid = [ num.split() for num in grid.split("\n")[1:-1] ]
 
 from functools import reduce
 
-def getVertical(x, y):
-    return reduce(int.__mul__, [int(grid[x+num][y]) for num in range(4)])
+vertical   = lambda x, y: reduce(int.__mul__, [int(grid[x+num][y    ]) for num in range(4)])
+horizontal = lambda x, y: reduce(int.__mul__, [int(grid[x    ][y+num]) for num in range(4)])
+diagonalR  = lambda x, y: reduce(int.__mul__, [int(grid[x+num][y+num]) for num in range(4)])
+diagonalL  = lambda x, y: reduce(int.__mul__, [int(grid[x+num][y-num]) for num in range(4)])
 
-def getHorizontal(x, y):
-    return reduce(int.__mul__, [int(grid[x][y+num]) for num in range(4)])
-
-def getDiagonalR(x, y):
-    return reduce(int.__mul__, [int(grid[x+num][y+num]) for num in range(4)])
-
-def getDiagonalL(x, y):
-    return reduce(int.__mul__, [int(grid[x+num][y-num]) for num in range(4)])
- 
-maxprod = 0
-
-for x in range(len(grid)-4):
-    for y in range(len(grid[x])-4):
-        maxprod = max([maxprod, getVertical(x, y), getHorizontal(x, y), getDiagonalR(x, y), getDiagonalL(x, y+4)])
-      
-print(maxprod)
+print(max(max(vertical(x, y), horizontal(x, y), diagonalR(x, y), diagonalL(x, y)) for x in range(len(grid) - 4) for y in range(len(grid[x]) - 4)))

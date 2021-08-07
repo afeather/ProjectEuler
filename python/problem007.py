@@ -1,4 +1,5 @@
 # What is the 10 001st prime number?
 
-from prime import nthPrime
+from util import nthPrime
+
 print(nthPrime(10001))

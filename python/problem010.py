@@ -1,6 +1,5 @@
 # Find the sum of all the primes below two million.
 
-from prime import sieve
+from util import simpleSieve
 
-print(sum([ n for n, isprime in enumerate(sieve(2000000)) if isprime ]))
-
+print(sum(simpleSieve(2000000)))

@@ -21,7 +21,7 @@ digits = '''73167176531330624919225119674426574742355349194934
             05886116467109405077541002256983155200055935729725
             71636269561882670428252483600823257530420752963450'''
 
-digits = [int(s) for s in digits if s in "1234567890"]
+digits = [int(s) for s in digits if s.isdigit()]
 
 from functools import reduce
-print(max([reduce(int.__mul__, digits[start:start + 13]) for start in range(len(digits) - 13)]))
+print(max(reduce(int.__mul__, digits[start:start + 13]) for start in range(len(digits) - 13)))

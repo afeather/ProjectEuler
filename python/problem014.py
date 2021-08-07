@@ -1,36 +1,19 @@
 # 13 -> 40 -> 20 -> 10 -> 5 -> 16 -> 8 -> 4 -> 2 -> 1
 # Which starting number, under one million, produces the longest chain
 
-lookup = [ 0 for num in range(1000000) ]
+counts = {1: 1}
 
-def collatz(start):
+def collatz(n):
     
-    current = start
-    count = 1
-    
-    while current != 1:
-        
-        if current < len(lookup) and lookup[current] != 0:
-            count = count + lookup[current] - 1
-            break
-        elif current % 2 == 0:
-            current = int(current / 2)
-        else:
-            current = current * 3 + 1
-        
-        count = count + 1
-    
-    lookup[start] = count
-    return count
+    if n not in counts:
+        counts[n] = 1 + collatz(n // 2 if n % 2 == 0 else n * 3 + 1)
 
-maxcount = 0
-maxstart = 0
+    return counts[n]
 
-for num in range(1,1000000):
-    c = collatz(num)
+maxStart, maxCount = 0, 0
+
+for i in range(1, 1000000):
+    count = collatz(i)
+    if count > maxCount: maxStart, maxCount = i, count
     
-    if c > maxcount:
-        maxcount = c
-        maxstart = num
-        
-print(maxstart)
+print(maxStart)

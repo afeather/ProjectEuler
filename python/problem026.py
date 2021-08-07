@@ -15,14 +15,12 @@ def getRemainders(num):
             remainders.append(R)
             i = i * 10
         
-maxlen = 0
-maxi = 0
+maxlen, maxd = 0, 0
 
-for i in range(1,1000):
-    remainders = getRemainders(i)
+for d in range(1,1000):
+    remainders = getRemainders(d)
     if len(remainders) > maxlen:
-        maxlen = len(remainders)
-        maxi = i
+        maxlen, maxd = len(remainders), d
 
-print maxi
+print(maxd)
     

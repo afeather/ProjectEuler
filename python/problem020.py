@@ -2,5 +2,4 @@
 
 from math import factorial
 
-print(sum([int(num) for num in str(factorial(100))]))
-
+print(sum(int(num) for num in str(factorial(100))))
